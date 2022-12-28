@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+  
 <head>
   <meta charset="utf-8">
   <title>IApple</title>
@@ -13,6 +13,10 @@
 </head>
 
 <body>
+
+  <header>
+    <app-navbar></app-navbar>
+  </header>
 
   <form class="ui form" id="create-form">
     <div class="field">
@@ -33,6 +37,7 @@
   <div class="ui cards" id="cards">
     <app-phone *ngFor="let phone of phones" [phone]="phone"></app-phone>
   </div>
+
 </body>
 
 </html>
