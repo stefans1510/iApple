@@ -1,0 +1,34 @@
+<form [formGroup]="phoneForm" (ngSubmit)="onSubmit(phoneForm.value)" class="ui form" id="form"
+    [class.error]="!phoneForm.valid && !phoneForm.touched">
+    <div class="field">
+        <label>Phone Name</label>
+        <input type="text" name="phone-name" placeholder="Phone Name" [formControl]="$any(phoneName)">
+        <div *ngIf="!phoneName.valid" class="ui error message">Phone name not valid!</div>
+        <div *ngIf="phoneName.hasError('required')" class="ui error message">Phone name is required!</div>
+        <div *ngIf="phoneName.hasError('invalidPhone')" class="ui error message">Phone name must contain at least 6
+            charachters</div>
+    </div>
+    <div class="field">
+        <div class="ui checkbox">
+            <input type="checkbox" class="hidden" #addRam>
+            <label>+ 8 GB RAM</label>
+        </div>&nbsp;
+        <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden" #addMp>
+            <label>+ 12 MP camera</label>
+        </div>&nbsp;
+        <div class="ui checkbox" id="checkbox">
+            <input type="checkbox" tabindex="0" class="hidden" #addCh>
+            <label>+ charger</label>
+        </div>
+        <div *ngIf="addRam.checked" class="ui warning message">+ $60</div>
+        <div *ngIf="addMp.checked" class="ui warning message">+ $85</div>
+        <div *ngIf="addCh.checked" class="ui warning message">+ $100</div>
+    </div>
+    <button class="ui right floated button" type="submit">Submit</button>
+
+</form>
+
+<script>
+    $('.ui.checkbox').checkbox()
+</script>
