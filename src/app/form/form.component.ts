@@ -8,11 +8,11 @@ import {
 } from '@angular/forms';
 
 function phoneNameValidation(control: FormControl): { [s: string]: boolean } {
-  if (control.value.match(/^([a-zA-Z0-9_-]){6,20}$/)) {
-    console.log('Phone name OK');
+  if (!control.value.match(/^([a-zA-Z0-9_-]){6,20}$/)) {
+    console.log('Phone name must contain at least 6 charachters');
     return {invalidPhone: true};
   } else {
-    console.log('Phone name must contain at least 6 charachters');
+    console.log('Phone name OK');
   }
   return {invalidPhone: false};
 }
