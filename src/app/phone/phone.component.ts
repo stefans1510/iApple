@@ -18,7 +18,7 @@ export class PhoneComponent implements OnInit {
   @Input() phone: Phone;
 
   constructor() {
-    this.phone = new Phone('iphone X', '1000', 'x.jpg')
+    this.phone = new Phone('iphone X', 1000, 'x.jpg')
   }
 
   ngOnInit() {

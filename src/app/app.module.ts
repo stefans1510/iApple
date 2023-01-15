@@ -10,6 +10,9 @@ import { OffersComponent } from './offers/offers.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FormComponent } from './form/form.component';
+import { Phone } from './model/phone';
+import { MobileService } from './services/mobileService';
+import { DIComponent } from './di/di.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { FormComponent } from './form/form.component';
     OffersComponent,
     RecommendationsComponent,
     AboutUsComponent,
-    FormComponent
+    FormComponent,
+    DIComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { FormComponent } from './form/form.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MobileService, Phone],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
