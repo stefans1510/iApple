@@ -1,0 +1,45 @@
+<form [formGroup]="phoneForm" class="container mt-5 pt-5" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input class="form-control" formControlName="id" type="text" name="id">
+    </div>
+  
+    <div class="form-group">
+        <label for="model">Model</label>
+        <input class="form-control" formControlName="model" type="text" name="model">
+    </div>
+    
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input class="form-control" formControlName="price" type="number" name="price">
+    </div>
+    <div class="col button-holder d-flex justify-content-center align-items-center mt-4">
+      <button type="submit" name="submit" class="btn btn-success">Add</button>
+    </div>
+  </form>
+
+  <div class="container mt-5 pt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">ID</th>
+          <th scope="col">Model</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let phone of phones; index as i;">
+            <th scope="row">{{phone.id}}</th>
+            <td>{{phone.model}}</td>
+          <td>{{phone.price}}</td>
+          <td>
+            <a  [routerLink]="['/phones', phone.id]" class="btn btn-primary">Details</a>
+          </td>
+          <td>
+              <button (click)="deletePhone(phone.id)" type="button" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
